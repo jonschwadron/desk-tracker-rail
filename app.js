@@ -372,7 +372,7 @@
 
   async function pollSpot() {
     try {
-      const j = await fetch(SPOT_URL + "?t=" + Date.now(), { cache: "no-store" }).then((r) => {
+      const j = await fetch(SPOT_URL, { cache: "no-store" }).then((r) => {
         if (!r.ok) throw new Error("spot " + r.status);
         return r.json();
       });
