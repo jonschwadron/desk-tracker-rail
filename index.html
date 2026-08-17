@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XAUUSD · rail</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div id="stage">
+      <div id="last">
+        <div id="last-px">—</div>
+        <div id="last-meta"><span id="last-flag">…</span> · LIVE XAU SPOT</div>
+        <div id="last-sub">indicative mid · not Coinexx · not OANDA</div>
+      </div>
+      <div id="chart"></div>
+    </div>
+    <aside id="rail">
+      <section>
+        <div class="row-top">
+          <div id="card-status">WAIT</div>
+          <div id="ev-flag" class="flag" hidden>STALE</div>
+        </div>
+        <div id="card-reason"></div>
+      </section>
+      <section>
+        <div id="tix-id"></div>
+        <div id="tix-line"></div>
+        <div id="tix-note">do not touch</div>
+      </section>
+      <section>
+        <div class="row-top">
+          <div class="k">float / bal</div>
+          <div id="book-flag" class="flag" hidden>STALE</div>
+        </div>
+        <div id="flt-line"></div>
+        <div id="bal-line"></div>
+      </section>
+      <section>
+        <div class="k">FVG · PROFIT AREA</div>
+        <div id="fvg-lines"></div>
+        <div id="fvg-note"></div>
+      </section>
+      <section id="feed-sec">
+        <div class="k">last 6</div>
+        <div id="feed"></div>
+      </section>
+    </aside>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

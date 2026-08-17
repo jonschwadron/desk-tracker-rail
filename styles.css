@@ -1,0 +1,58 @@
+:root {
+  --bg: #111;
+  --fg: #e8e6e3;
+  --dim: #8a8680;
+  --mute: #4e4c48;
+  --rule: #c4a35a;
+  --up: #b9c4a8;
+  --dn: #b08986;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; height: 100%; background: var(--bg); color: var(--fg);
+  font: 12px/1.45 ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+#app { display: flex; height: 100vh; height: 100dvh; }
+#stage { flex: 1; position: relative; min-width: 0; background: var(--bg); }
+#chart { position: absolute; inset: 0; }
+#last {
+  position: absolute; z-index: 3; top: 14px; left: 16px;
+  pointer-events: none; text-shadow: 0 0 12px #111;
+}
+#last-px { font-size: 34px; letter-spacing: -0.04em; line-height: 1; font-weight: 500; }
+#last-px.up { color: var(--up); }
+#last-px.dn { color: var(--dn); }
+#last-meta { margin-top: 6px; color: var(--dim); font-size: 11px; }
+#last-sub { color: var(--mute); font-size: 10px; margin-top: 2px; }
+#last-flag.live { color: var(--fg); }
+#last-flag.stale { color: var(--dn); }
+
+#rail {
+  flex: 0 0 280px; width: 280px;
+  border-left: 1px solid var(--rule);
+  display: flex; flex-direction: column;
+  background: var(--bg);
+  overflow: hidden;
+}
+#rail section {
+  padding: 14px 16px 13px;
+  border-bottom: 1px solid #1c1c1c;
+}
+#feed-sec { flex: 1; border-bottom: 0; overflow: auto; min-height: 0; }
+.row-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.k { color: var(--dim); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+.flag { color: var(--dn); font-size: 10px; letter-spacing: 0.08em; }
+#card-status { font-size: 22px; letter-spacing: 0.08em; line-height: 1; }
+#card-reason { color: var(--dim); margin-top: 8px; }
+#tix-id { font-size: 14px; }
+#tix-line, #flt-line, #bal-line { margin-top: 4px; }
+#tix-note { color: var(--dn); margin-top: 6px; font-size: 11px; }
+#flt-line.up { color: var(--up); }
+#flt-line.dn { color: var(--dn); }
+#fvg-lines { margin-top: 8px; }
+.ln { display: flex; justify-content: space-between; color: var(--fg); padding: 1px 0; }
+.ln span:first-child { color: var(--dim); }
+#fvg-note { color: var(--dim); margin-top: 8px; }
+.ev { display: grid; grid-template-columns: 52px 44px 1fr; gap: 6px; padding: 5px 0; color: var(--dim); }
+.ev .ag { color: var(--fg); }
+.ev .one { color: var(--dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
