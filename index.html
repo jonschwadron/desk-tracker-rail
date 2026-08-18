@@ -2,53 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>XAUUSD · rail</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://unpkg.com/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>XAUUSD DESK · 5217539</title>
+  <style>body{background:#050505;color:#c9a227}</style>
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
-  <div id="app">
-    <div id="stage">
-      <div id="last">
-        <div id="last-px">—</div>
-        <div id="last-meta"><span id="last-flag">…</span> · LIVE XAU SPOT</div>
-        <div id="last-sub">indicative mid · not Coinexx · not OANDA</div>
+  <div id="hud">
+    <header id="hdr">
+      <div class="hdr-l">
+        <b>XAUUSD DESK</b>
+        <span class="sep">·</span>
+        <span id="acct">5217539</span>
+        <span class="sep">·</span>
+        <span id="live" class="pill stale">STALE</span>
+        <span id="hold" class="pill hold">HORMUZ HOLD</span>
       </div>
-      <div id="chart"></div>
-    </div>
-    <aside id="rail">
-      <section>
-        <div class="row-top">
-          <div id="card-status">WAIT</div>
-          <div id="ev-flag" class="flag" hidden>STALE</div>
-        </div>
-        <div id="card-reason"></div>
-      </section>
-      <section>
-        <div id="tix-id"></div>
-        <div id="tix-line"></div>
-        <div id="tix-note">do not touch</div>
-      </section>
-      <section>
-        <div class="row-top">
-          <div class="k">float / bal</div>
-          <div id="book-flag" class="flag" hidden>STALE</div>
-        </div>
-        <div id="flt-line"></div>
-        <div id="bal-line"></div>
-      </section>
-      <section>
-        <div class="k">FVG · PROFIT AREA</div>
-        <div id="fvg-lines"></div>
-        <div id="fvg-note"></div>
-      </section>
-      <section id="feed-sec">
-        <div class="k">last 6</div>
-        <div id="feed"></div>
-      </section>
-    </aside>
+      <div class="hdr-r">
+        <span id="bidlab" class="cyan">—</span>
+        <span class="sep">·</span>
+        <span id="asof">—</span>
+      </div>
+    </header>
+
+    <section id="book">
+      <div class="k">FLOAT</div>
+      <div id="float" class="huge">—</div>
+      <div class="meta">
+        <div class="row"><span>equity</span><b id="eq">—</b></div>
+        <div class="row"><span>balance</span><b id="bal">—</b></div>
+      </div>
+      <div class="bars" id="bars"></div>
+      <div id="bookFoot" class="foot warn">Do not flatten 102034139</div>
+    </section>
+
+    <section id="tape">
+      <div class="k">TAPE</div>
+      <div class="tape-wrap">
+        <canvas id="tape-cv"></canvas>
+        <div id="tape-lab" class="cyan"></div>
+      </div>
+    </section>
+
+    <section id="lvls">
+      <div class="k">LEVELS</div>
+      <div id="levelGrid"></div>
+    </section>
+
+    <section id="path">
+      <div class="k">PATH · PROJECTION</div>
+      <div id="pathSvg"></div>
+    </section>
+
+    <section id="kpis"></section>
+
+    <section id="mat">
+      <div class="k">LOTTERY vs ADD $</div>
+      <div id="matGrid"></div>
+    </section>
+
+    <section id="flow">
+      <div class="k">FLOW</div>
+      <div id="flowSvg"></div>
+    </section>
+
+    <footer id="tick">
+      <div id="ticker"></div>
+    </footer>
   </div>
-  <script src="app.js"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
