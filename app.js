@@ -346,11 +346,27 @@
     ro.observe(el);
   }
 
-  async function loadJSON(url) {
-    const r = await fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" });
-    if (!r.ok) throw new Error(url + " " + r.status);
-    return r.json();
+
+  const LIVE_BASE = "https://geek-talk-incidents-organizer.trycloudflare.com";
+
+  async function loadJSON(path) {
+    const urls = [];
+    if (LIVE_BASE && (path === "book.json" || path === "events.json")) {
+      urls.push(LIVE_BASE.replace(/\/$/, "") + "/" + path);
+    }
+    urls.push(path);
+    let lastErr;
+    for (const url of urls) {
+      try {
+        const sep = url.includes("?") ? "&" : "?";
+        const r = await fetch(url + sep + "t=" + Date.now(), { cache: "no-store" });
+        if (!r.ok) throw new Error(url + " " + r.status);
+        return await r.json();
+      } catch (e) { lastErr = e; }
+    }
+    throw lastErr;
   }
+
 
   async function pollDesk() {
     try {
